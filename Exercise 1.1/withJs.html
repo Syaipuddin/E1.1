@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <title>Email & Password</title>
+        <link rel="stylesheet" href="index.css">
+        <script>
+            function foo(){
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+                validator(email, password);
+            }
+            function validator(email, password){
+                if(!email.match(/@\w.+/g)){
+                    const emailBox = document.getElementById('email-box');
+                    emailBox.appendChild(document.createElement('br'));
+                    emailBox.appendChild(document.createElement('p').appendChild(document.createTextNode('Wrong Email Format!!')));
+                }
+                if(password.length < 4){
+                    console.log("minimum password length is 4!")
+                    const passwordBox = document.getElementById('password-box');
+                    passwordBox.appendChild(document.createElement('br'));
+                    passwordBox.appendChild(document.createElement('p').appendChild(document.createTextNode('Password Length Must be 4 or More!')))
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div>
+            <h1>Simple Email & Password</h1>
+            <form onsubmit="return false">
+                <div id="email-box">
+                    <label>Email</label>
+                    </br>
+                    <input id="email" value="oke@gmail.com" required>
+                </div>
+            </br>
+            </br>
+                <div id="password-box">
+                    <label>Password</label>
+                    </br>
+                    <input id="password" type="password" required>
+                </div>
+                </br>
+                </br>
+                <input type="submit" onclick="return foo()">
+            </form>
+        </div>
+    </body>
+</html>
